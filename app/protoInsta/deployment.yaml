@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: react-container
-          image: your_react_image:tag
+          image: hypervision201/kube-conc-frontend:#{Build.BuildId}#
           ports:
             - containerPort: 3000  
 
