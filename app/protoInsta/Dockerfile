@@ -5,5 +5,5 @@ COPY package.json package-lock.json ./
 RUN npm install
 COPY . .
 # RUN sed -i 's/localhost:5000/<name of cluster ip>/g' *
-RUN find /app -type f -exec sed -i 's/localhost:5000/mysql-service/g' {} +
+RUN find /app -type f -exec sed -i 's/localhost:5000/4.236.203.12/g' {} +
 CMD ["npm", "start"]
