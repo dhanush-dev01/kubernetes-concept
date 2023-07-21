@@ -7,7 +7,7 @@ const ViewComp = () => {
   const [loading, setLoading] = useState(true);
   
   const refresh = () => {
-    axios.get("http://localhost:5000/getImages").then((res) => {
+    axios.get("http://localhost:5000/backend/getImages").then((res) => {
       console.log(res.data);
       setHeroes(res.data);
       setLoading(false);

@@ -48,7 +48,7 @@ app.use(express.static(__dirname + "/public"))
   .use(cors());
 //----------------------------------------------------------------------------------------------------------------------
 // READ
-app.get("/data", (req, res) => {
+app.get("/backend/data", (req, res) => {
   pool.query("SELECT * FROM table1", (err, results) => {
     if (err) {
       console.error('Error executing query:', err);
@@ -61,7 +61,7 @@ app.get("/data", (req, res) => {
 
 //------------------------------------------------------------------------------------------------------------
 
-app.get("/getImages", (req, res) => {
+app.get("/backend/getImages", (req, res) => {
   const query = 'SELECT * FROM files';
 
   pool.query(query, (err, results) => {
@@ -91,7 +91,7 @@ app.get("/getImages", (req, res) => {
 
 //-----------------------------------------------------------------------------------------------------------------------
 
-app.post('/create', (req, res) => {
+app.post('/backend/create', (req, res) => {
     const { name, age } = req.body;
   
     const query = 'INSERT INTO table1 (name, age) VALUES (?, ?)';
@@ -109,7 +109,7 @@ app.post('/create', (req, res) => {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-  app.post('/upload', upload.single('file'), (req, res) => {
+  app.post('/backend/upload', upload.single('file'), (req, res) => {
     console.log(req.file);
     const file = req.file;
     if (!file) {
@@ -134,9 +134,9 @@ app.post('/create', (req, res) => {
 
 //-----------------------------------------------------------------------------------------------------------------
 
-  app.post("/comments/:hid",(req,res)=>{
+  // app.post("/backend/comments/:hid",(req,res)=>{
 
-  })
+  // })
 
 //-------------------------------------------------------------------------------------------------------------------
 

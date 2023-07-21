@@ -17,7 +17,7 @@ const ImageComp = () => {
     formData.append("file", file);
 
     axios
-      .post("http://localhost:5000/upload", formData)
+      .post("http://localhost:5000/backend/upload", formData)
       .then((response) => {
         console.log(response.data);
       })

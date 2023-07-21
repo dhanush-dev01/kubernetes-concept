@@ -8,7 +8,7 @@ let TableComp = ()=>{
    
  
     let refresh = ()=>{
-        axios.get("http://localhost:5000/data").then(res => {
+        axios.get("http://localhost:5000/backend/data").then(res => {
             setHeroes(res.data);
         })
     }
@@ -23,7 +23,7 @@ let TableComp = ()=>{
 
     let addHero = function(){
         console.log(nvals);
-            axios.post("http://localhost:5000/create",nvals)
+            axios.post("http://localhost:5000/backend/create",nvals)
             .then(res => {
                 setNvals({ name : '', age : ''})
                 refresh();
