@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: nodejs-container
-          image: hypervision201/kube-conc-backend:#{Build.BuildId}
+          image: hypervision201/kube-conc-backend:#{Build.BuildId}#
           ports:
             - containerPort: 5000  
 
