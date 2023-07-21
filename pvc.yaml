@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: my-pvc
+  namespace: sql
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: sql-db
+  resources:
+    requests:
+      storage: 10Gi
