@@ -3,5 +3,5 @@
     "pass":"hypervisor@2001",
     "dbname":"dhanushdb",
     "dbhost":"20.127.252.227",
-    "host":"localhost"
+    "host":"10.244.0.23"
 }
