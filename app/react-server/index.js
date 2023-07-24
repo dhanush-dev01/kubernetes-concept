@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
   const upload = multer({ storage: storage });
 
 const pool = mysql.createPool({
-  host: '20.127.252.227',
+  host: 'mysql-service',
   user: 'hypervision',
   password: 'hypervisor@2001',
   database: 'dhanushdb',
