@@ -43,7 +43,8 @@ pool.getConnection((err, connection) => {
   connection.release();
 });
 
-app.use(express.static(__dirname + "/public"))
+app
+// .use(express.static(__dirname + "/public"))
   .use(express.json())
   .use(cors());
 //----------------------------------------------------------------------------------------------------------------------
@@ -141,5 +142,6 @@ app.post('/backend/create', (req, res) => {
 //-------------------------------------------------------------------------------------------------------------------
 
 // Start the server
-app.listen(port, config.host, errorHandler);
+app.listen(port);
+// , config.host, errorHandler);
 console.log(`Server is now ready on ${config.host}:${port}`);

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: react-app
-  namespace: sql
+  namespace: ingress-nginx
 spec:
   replicas: 1  
   selector:
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: react-container
-          image: hypervision201/kube-conc-frontend:#{Build.BuildId}#
+          image: hypervision201/kube-conc-frontend:71
           ports:
             - containerPort: 3000  
 
@@ -24,7 +24,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: react-service
-  namespace: sql
+  namespace: ingress-nginx
   labels:
     app: react-app
 spec:

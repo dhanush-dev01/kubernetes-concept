@@ -1,0 +1,64 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dhanush
+  namespace: ingress-nginx
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  # tls:
+  #   - hosts:
+  #       - dhanush.com
+  #     secretName: dhanush-secret-tls
+  rules:
+    - host: dhanush.com
+      http:
+        paths:
+          - path: /backend
+            pathType: Prefix
+            backend:
+              service:
+                name: node-service
+                port:
+                  number: 80
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: react-service
+                port:
+                  number: 80
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: dhanush
+#   namespace: ingress-nginx sql
+#   annotations:
+#     kubernetes.io/ingress.class: nginx
+# spec:
+#   # tls:
+#   #   - hosts:
+#   #       - dhanush.com
+#   #     secretName: dhanush-secret-tls
+#   rules:
+#     - host: dhanush.com
+#       http:
+#         paths:
+#           - path: /backend
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: node-service
+#                 port:
+#                   number: 80
+
+#     - host: react.dhanush.com
+#       http:
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: react-service
+#                 port:
+#                   number: 80
