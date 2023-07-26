@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: mysql-secrets
-  namespace: sql
+  namespace: ingress-nginx
 type: Opaque
 data:
   MYSQL_ROOT_PASSWORD: aHlwZXJ2aXNvckAyMDAx # Base64-encoded value of the MySQL root password

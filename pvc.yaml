@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: my-pvc
-  namespace: sql
+  namespace: ingress-nginx
 spec:
   accessModes:
     - ReadWriteOnce
