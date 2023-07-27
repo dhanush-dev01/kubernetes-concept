@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: azure-storage-secret
+  namespace: assessment
+type: Opaque
+data:
+  accountName: <base64-encoded-account-name>
+  accountKey: <base64-encoded-account-key>

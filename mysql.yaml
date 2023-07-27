@@ -1,3 +1,7 @@
+#Together, this YAML file defines a single-replica Deployment running a MySQL database using the mysql:latest container image.
+# The Deployment uses a pod template with environment variables and a persistent volume (mysql-persistent-storage) to store MySQL data. 
+#The Service (mysql-service) routes traffic to the MySQL pods on port 3306. 
+#The entire setup is deployed in the ingress-nginx namespace for the Deployment and the sql namespace for the Service.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -20,7 +24,7 @@ spec:
         image: mysql:latest
         ports:
         - containerPort: 3306
-        env:
+        env:  # Setting values to variables inside the container
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
@@ -44,12 +48,23 @@ spec:
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
+        - name: sql-dumps
+          mountPath: /var/log/sql-dumps
       volumes:
+      - name: sql-dumps
+        azureFile:
+          secretName: azure-storage-secret
+          shareName: files
+          readOnly: false
       - name: mysql-persistent-storage
         persistentVolumeClaim:
-          claimName: my-pvc 
+          claimName: my-pvc
+ 
 
 ---
+#first create a LoadBalancer ip and then give that ip to database later comment the below code and again 
+#with below cluster ip service
+
 # apiVersion: v1
 # kind: Service
 # metadata:
